@@ -1,7 +1,7 @@
 {
-  "name": "react-native-gifted-charts",
-  "version": "1.2.42",
-  "description": "The most complete library for Bar, Line, Area, Pie, Donut and Stacked Bar charts in React Native. Allows 2D, 3D, gradient, animations and live data updates.",
+  "name": "react-native-clickable-graph",
+  "version": "1.0.0",
+  "description": "The most complete library for Bar, Line, Area, Pie, Donut and Stacked Bar charts in React Native. Allows 2D, 3D, gradient, animations and live data updates, also forks added long press on bar graph and line reference on bar chart original author Abhinandan-Kushwaha",
   "main": "src/index.tsx",
   "files": [
     "src"
@@ -13,13 +13,13 @@
     "test": "jest",
     "lint": "eslint ."
   },
-  "repository": "https://github.com/Abhinandan-Kushwaha/react-native-gifted-charts",
-  "author": "Abhinandan Kushwaha <kushabhi5@gmail.com> (https://github.com/Abhinandan-Kushwaha)",
+  "repository": "https://github.com/asdmobility/react-native-gifted-charts.git",
+  "author": "ASDMobility <techmahindrabs@gmail.com> (https://github.com/asdmobility)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Abhinandan-Kushwaha/react-native-gifted-charts/issues"
+    "url": "https://github.com/asdmobility/react-native-gifted-charts/issues"
   },
-  "homepage": "https://gifted-charts.web.app/",
+  "homepage": "https://github.com/asdmobility/react-native-gifted-charts.git",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

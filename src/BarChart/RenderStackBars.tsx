@@ -25,7 +25,8 @@ type Props = {
   data?: any;
   barWidth?: number;
   onPress?: Function;
-
+  onPressOut?: Function;
+  onLongPress?: Function;
   rotateLabel?: Boolean;
   showXAxisIndices: Boolean;
   xAxisIndicesHeight: number;
@@ -52,6 +53,8 @@ type Props = {
 type itemType = {
   value?: number;
   onPress?: any;
+  onPressOut?: any;
+  onLongPress?: any;
   label?: String;
   barWidth?: number;
   spacing?: number;
@@ -110,9 +113,13 @@ const RenderStackBars = (props: Props) => {
         style={[
           {
             width:
-              (item.stacks[0].barWidth || props.barWidth || 30) + spacing / 2,
+              (item.stacks[0].barWidth || props.barWidth || 30) + spacing / 1.2,
             position: 'absolute',
-            bottom: rotateLabel ? -40 : -25,
+            height: 80,
+            bottom: rotateLabel ? -40 : -85,
+            alignSelf: "center",
+            alignItems:'center',
+            justifyContent: "flex-start",
           },
           rotateLabel
             ? props.horizontal
@@ -163,6 +170,22 @@ const RenderStackBars = (props: Props) => {
               item.onPress();
             } else if (props.onPress) {
               props.onPress(item, index);
+            }
+          }}
+          onPressOut={() => {
+            setSelectedIndex(index);
+            if (item.onPressOut) {
+              item.onPressOut();
+            } else if (props.onPressOut) {
+              props.onPressOut(item, index);
+            }
+          }}
+          onLongPress={() => {
+            setSelectedIndex(index);
+            if (item.onLongPress) {
+              item.onLongPress();
+            } else if (props.onLongPress) {
+              props.onLongPress(item, index);
             }
           }}
           style={[
@@ -237,6 +260,7 @@ const RenderStackBars = (props: Props) => {
                   />
                 ) : null}
                 {stackItem.innerBarComponent && stackItem.innerBarComponent()}
+                
               </TouchableOpacity>
             );
           })}
@@ -324,6 +348,7 @@ const RenderStackBars = (props: Props) => {
         {static2DSimple(item, index)}
         {renderLabel(label || '', labelTextStyle)}
       </View>
+      
       {renderTooltip && selectedIndex === index && (
         <View
           style={{

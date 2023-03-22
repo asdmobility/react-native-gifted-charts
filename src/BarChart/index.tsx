@@ -144,6 +144,8 @@ type PropTypes = {
   patternId?: String;
   barMarginBottom?: number;
   onPress?: Function;
+  onPressOut?: Function;
+  onLongPress?: Function;
   renderTooltip?: Function;
   leftShiftForTooltip?: number;
   leftShiftForLastIndexTooltip?: number;
@@ -196,6 +198,8 @@ type sectionType = {
 type itemType = {
   value?: number;
   onPress?: any;
+  onPressOut?: any;
+  onLongPress?: any;
   frontColor?: ColorValue;
   sideColor?: ColorValue;
   topColor?: ColorValue;
@@ -1120,7 +1124,7 @@ export const BarChart = (props: PropTypes) => {
                         left:
                           yAxisSide === 'right'
                             ? yAxisLabelWidth + yAxisThickness
-                            : yAxisLabelWidth + yAxisThickness - 5,
+                            : yAxisLabelWidth + yAxisThickness,
                       }}>
                       <Rule config={referenceLine1Config} />
                       {referenceLine1Config.labelText ? (
@@ -1677,6 +1681,8 @@ export const BarChart = (props: PropTypes) => {
                       item.labelTextStyle || props.xAxisLabelTextStyle
                     }
                     onPress={props.onPress}
+                    onPressOut={props.onPressOut}
+                    onLongPress={props.onLongPress}
                     xAxisTextNumberOfLines={xAxisTextNumberOfLines}
                     renderTooltip={props.renderTooltip}
                     leftShiftForTooltip={props.leftShiftForTooltip || 0}

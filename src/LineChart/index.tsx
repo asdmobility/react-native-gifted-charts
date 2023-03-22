@@ -2121,16 +2121,17 @@ export const LineChart = (props: propTypes) => {
         style={[
           {
             position: 'absolute',
-            bottom: 30,
+            bottom: labelsExtraHeight === 0 ? -15 : -30,
+            marginBottom: 30,
             zIndex: 10,
-            width: spacing + labelsExtraHeight,
+            width: spacing,
             left:
               index === 0 && initialSpacing < 10
-                ? initialSpacing + spacing * index - spacing / 2 + 8
-                : initialSpacing + spacing * index - spacing / 2,
+                ? initialSpacing + spacing * index - spacing / 2 + 10
+                : initialSpacing + spacing * index - spacing / 2 + 8,
             justifyContent: 'center',
           },
-          rotateLabel && {transform: [{rotate: '60deg'}]},
+          rotateLabel && {transform: [{rotate: '45deg'}]},
         ]}>
         {labelComponent ? (
           labelComponent()
@@ -2520,11 +2521,11 @@ export const LineChart = (props: propTypes) => {
                       ],
                     },
                   ]}>
-                  {index === noOfSections && showReferenceLine1 ? (
+                  {index === noOfSections && showReferenceLine1 && maxValue >= 8 ? (
                     <View
                       style={{
                         position: 'absolute',
-                        bottom:
+                        bottom: 
                           (referenceLine1Position * containerHeight) / maxValue,
                         left:
                           yAxisSide === 'right'
